@@ -28,7 +28,7 @@ function createImages(arrayImages) {
   thumbnailsContainer.style.display = "block"; // Make visible
   thumbnailsContainer.innerHTML = ""; // Clear previous images
   console.log(arrayImages);
-  arrayImages.forEach((image) => {
+  arrayImages.forEach((image, index) => {
     // Create image tag
     let imageElement = document.createElement("img");
     // Set the img src and alt to be image.url
@@ -38,6 +38,8 @@ function createImages(arrayImages) {
     // Give button listener to set background image
     imageElement.addEventListener("click", function () {
       setDisplayImage(image);
+      imageIndex = index;
+      updateThumbnailScrollbar();
     });
 
     // Append to thumbnailsContainer
